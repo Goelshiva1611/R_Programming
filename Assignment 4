@@ -1,0 +1,84 @@
+#E(X^K)->KTH MOMENT
+#E(X)->MEAN NP
+#T.F(T)DT INTEGRATION
+
+#Assignment 4
+
+#Question 1 
+x=c(0,1,2,3,4)
+probx=c(0.41,0.37,0.16,0.05,0.01)
+Expval=sum(x*probx)
+print(Expval)
+
+Expval1=sum(x*x*probx)
+print(Expval1)
+
+var=Expval1-(Expval*Expval)
+print(var)
+
+Expval=weighted.mean(x,probx)
+print(Expval)
+
+Expval=c(x%*%probx)
+print(Expval)
+
+#question 2
+
+f=function(t){
+  
+  t*0.1*exp(-0.1*t)
+}
+Expval=integrate(f,lower=0,upper=Inf)
+
+print(Expval$value)
+
+
+f1=function(t){
+  
+  t*t*0.1*exp(-0.1*t)
+}
+Expval1=integrate(f1,lower=0,upper=Inf)
+
+print(Expval1$value)
+
+
+var=Expval1$value - (Expval$value *Expval$value)
+print(var)
+
+#question 3
+
+x1<-c(0,1,2,3)
+probx1<-c(0.1 , 0.2 , 0.2 , 0.5)
+Expval2=sum(x1*probx1)
+print(Expval2)
+
+Expval4=sum(x1*x1*probx1)
+var=Expval4-(Expval2*Expval2)
+print(var)
+
+Expval3=Expval2*10-12
+print(Expval3)
+
+var2=10*10*var
+print(var2)
+
+#Question 4
+
+f=function(t){
+  
+  t*0.5*exp(-abs(t))
+}
+Expval=integrate(f,lower=1,upper=10)
+print(Expval$value)
+
+f1=function(t){
+  
+  t*t*0.5*exp(-abs(t))
+}
+Expval1=integrate(f1,lower=1,upper=10)
+
+print(Expval1$value)
+
+var=Expval1$value - (Expval$value *Expval$value)
+print(var)
+
